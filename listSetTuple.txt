@@ -1,0 +1,312 @@
+LIST(MUTABLE)
+
+>>> courses = ["c","java",'c++','python']
+>>> print(courses[0])
+c
+
+>>> print(courses[-1])
+python
+
+>>> print(courses[0:])
+['c', 'java', 'c++', 'python']
+
+>>> print(courses[-1:])
+['python']
+
+>>> print(courses[:-1])
+['c', 'java', 'c++']
+
+>>> print(courses[0:4])
+['c', 'java', 'c++', 'python']
+------------------------------------------------------------------------------------------------------
+APPENDING THE VALUE TO LIST
+>>> courses.append('js')
+
+>>> print(courses)
+['c', 'java', 'c++', 'python', 'js']
+----------------------------------------------------------------------------------------------------------
+INSERTING INTO LIST AT CERTAIN INDEX
+>>> courses.insert(0,'english')
+
+>>> print(courses)
+['english', 'c', 'java', 'c++', 'python', 'js']
+
+>>> courses1=['telugu','hindi']
+
+>>> courses.insert(1,courses1)
+
+>>> print(courses)
+['english', ['telugu', 'hindi'], 'c', 'java', 'c++', 'python', 'js']
+----------------------------------------------------------------------------------------------------------
+APPENDING 2 LISTS
+>>> courses.extend(courses1)
+
+>>> print(courses)
+['english', ['telugu', 'hindi'], 'c', 'java', 'c++', 'python', 'js', 'telugu', 'hindi']
+
+>>> courses.remove(1)
+Traceback (most recent call last):
+  File "<pyshell#16>", line 1, in <module>
+    courses.remove(1)
+ValueError: list.remove(x): x not in list
+
+>>> print(courses.pop())
+hindi
+
+REVERSE
+>>> courses.reverse()
+
+>>> print(courses)
+['telugu', 'js', 'python', 'c++', 'java', 'c', ['telugu', 'hindi'], 'english']
+---------------------------------------------------------------------------------------------------------
+SORT
+>>> courses.sort()
+Traceback (most recent call last):
+  File "<pyshell#20>", line 1, in <module>
+    courses.sort()
+TypeError: '<' not supported between instances of 'list' and 'str'
+
+>>> courses.remove('telugu')
+
+>>> courses.remove('hindi')
+Traceback (most recent call last):
+  File "<pyshell#22>", line 1, in <module>
+    courses.remove('hindi')
+ValueError: list.remove(x): x not in list
+
+>>> print(courses)
+['c', 'c++', 'java', 'js', 'python', ['telugu', 'hindi'], 'english']
+
+>>> courses.remove(course1)
+Traceback (most recent call last):
+  File "<pyshell#24>", line 1, in <module>
+    courses.remove(course1)
+NameError: name 'course1' is not defined
+
+>>> courses.pop()
+'english'
+
+>>> courses.pop()
+['telugu', 'hindi']
+
+>>> courses.append('html')
+
+>>> print(courses)
+['c', 'c++', 'java', 'js', 'python', 'html']
+
+>>> courses.sort()
+
+>>> print(courses)
+['c', 'c++', 'html', 'java', 'js', 'python']
+>>>  nums=[1,2,3,4,5] 
+SyntaxError: unexpected indent
+
+>>> nums = [1,2,4,5,6,3]
+-----------------------------------------------------------------------------------------------------------
+DESCENDING ORDER SORT
+>>> nums.sort(reverse=True)
+
+>>> print(nums)
+[6, 5, 4, 3, 2, 1]
+
+>>> courses.sort(reverse=True)
+
+>>> print(courses)
+['python', 'js', 'java', 'html', 'c++', 'c']
+----------------------------------------------------------------------------------------------------------------
+INBULT SORTING FUNCTION
+>>> sorted_courses = sorted(courses)
+
+>>> print(sorted_courses)
+['c', 'c++', 'html', 'java', 'js', 'python']
+---------------------------------------------------------------------------------------------------------------
+AGGREGATE FUNCTIONS
+
+SUM
+>>> print(sum(nums))
+21
+
+MAX
+>>> print(max(nums))
+6
+
+MIN
+>>> print(min(nums))
+1
+-----------------------------------------------------------------------------------------------------------------
+FINDING INDEX OF THE VALUE
+>>> print(courses.index('c'))
+5
+
+>>> print(courses.index('hi'))
+Traceback (most recent call last):
+  File "<pyshell#43>", line 1, in <module>
+    print(courses.index('hi'))
+ValueError: 'hi' is not in list
+----------------------------------------------------------------------------------------------------------------
+CHECK IF VALUE EXISTS IN LIST
+>>> print('hi' in courses)
+False
+
+>>> print('c' in courses)
+True
+-------------------------------------------------------------------------------------------------------------------
+ITERATION
+>>> for(item in courses)
+SyntaxError: invalid syntax
+>>> for item in courses:
+	    print(item)
+
+python
+js
+java
+html
+c++
+c
+
+ITERATION WITH INDEX
+>>> for index,course in enumerate(courses):
+	    print(index, course)
+
+0 python
+1 js
+2 java
+3 html
+4 c++
+5 c
+
+ITERATION WITH DIFFERENT START NUMBER
+>>> for index,course in enumerate(courses,start = 1):
+	print(index, course)
+
+1 python
+2 js
+3 java
+4 html
+5 c++
+6 c
+
+
+>>> for index,course in enumerate(courses,start=a):
+	print(index, course)
+
+Traceback (most recent call last):
+  File "<pyshell#56>", line 1, in <module>
+    for index,course in enumerate(courses,start=a):
+NameError: name 'a' is not defined
+---------------------------------------------------------------------------------------------------------------
+JOIN OPERATION
+>>> courses_Str = ', '.join(courses)
+
+>>> print(courses_Str)
+python, js, java, html, c++, c
+---------------------------------------------------------------------------------------------------------------------
+SPLIT OPERATION
+>>> new_list=courses_Str.split(', ')
+
+>>> print(new_list)
+['python', 'js', 'java', 'html', 'c++', 'c']
+
+---------------------------------------------------------------------------------------------------------------------
+DEEP COPY
+>>> list1=['A','b','c','d']
+
+>>> list2=list1
+
+>>> print(list1)
+['A', 'b', 'c', 'd']
+
+>>> print(list2)
+['A', 'b', 'c', 'd']
+
+>>> list1[0]='a'
+
+>>> print(list)
+<class 'list'>
+
+>>> print(list1)
+['a', 'b', 'c', 'd']
+
+>>> print(list2)
+['a', 'b', 'c', 'd']
+
+>>> list2[0]='A'
+
+>>> print(list1)
+['A', 'b', 'c', 'd']
+
+>>> print(list2)
+['A', 'b', 'c', 'd']
+---------------------------------------------------------------------------------------------------------------------
+TUPLE (IMMUTABLE)
+>>> tuple1=('a','b','c','d')
+
+>>> tuple2=tuple1
+
+>>> print(tuple1)
+('a', 'b', 'c', 'd')
+
+>>> print(tuple2)
+('a', 'b', 'c', 'd')
+
+>>> tuple1[0]='A'
+Traceback (most recent call last):
+  File "<pyshell#77>", line 1, in <module>
+    tuple1[0]='A'
+TypeError: 'tuple' object does not support item assignment
+---------------------------------------------------------------------------------------------------------------------
+SET
+>>> set1={'a','a'}
+
+>>> print(set1)
+{'a'}
+
+>>> print(len(set1))
+1
+
+>>> cs_courses={'math','c','c++'}
+
+>>> mpc={'math','phy','che'}
+
+SET INTERSECTION
+>>> print(cs_courses.intersection(mpc))
+{'math'}
+
+SET UNION
+>>> print(cs_courses.union(mpc))
+{'che', 'phy', 'c++', 'c', 'math'}
+
+SET DIFFERENCE
+>>> print(cs_courses.difference(mpc))
+{'c', 'c++'}
+---------------------------------------------------------------------------------------------------------------------
+LIST VS TUPLE VS SET
+>>> list_new = []
+
+>>> list_new1=list()
+
+>>> print(type(list_new))
+<class 'list'>
+
+>>> print(type(list_new1))
+<class 'list'>
+
+>>> tuple_new = ()
+
+>>> tuple_new1=tuple()
+
+>>> print(type(tuple_new))
+<class 'tuple'>
+
+>>> print(type(tuple_new1))
+<class 'tuple'>
+
+>>> set_new = {}
+
+>>> set_new1=set()
+
+>>> print(type(set_new))
+<class 'dict'>
+
+>>> print(type(set_new1))
+<class 'set'>
